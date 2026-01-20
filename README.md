@@ -83,6 +83,7 @@ Claude Code/
 │   └── img/                        # 配图
 │       ├── 测试Claude Code是否调用Skill.png
 │       └── Claude Code调用Skill情况.png
+├── LICENSE                         # MIT 开源协议
 └── README.md                       # 本文件
 ```
 
@@ -99,8 +100,15 @@ Claude Code/
 - [Anthropic Skills GitHub](https://github.com/anthropics/skills)
 - [GLM Coding Plan 文档](https://docs.bigmodel.cn/cn/coding-plan)
 
+## 📜 开源协议
+
+本教程采用 [MIT License](./LICENSE) 开源协议。
+
+> 本项目允许任何人自由使用、修改和分发，只需在衍生作品中保留版权声明和许可声明。
+
 ---
 
 **版本**：v1.0
 **更新日期**：2026-01-20
 **维护者**：zzy
+**协议**：[MIT License](./LICENSE)
