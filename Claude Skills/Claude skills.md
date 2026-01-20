@@ -262,35 +262,33 @@ version: 1.0.0
 **方法三：Claude API**（适用于将 Claude 集成到自有应用或服务）：
 
 1. **调用 Skills API**：Anthropic 提供了专门的 Skills API 端点，用于管理自定义技能。开发者可以通过发送 POST 请求将技能上传到自己的工作区。例如：
-```
+```bash
 
-bash
 curl -X POST “https://api.anthropic.com/v1/skills”
--H “x-api-key: $ANTHROPIC_API_KEY”
--H “anthropic-version: 2023-06-01”
--H “anthropic-beta: skills-2025-10-02”
--F “display_title=Git Commit Message Generator”
--F “files[]=@git-commit-message/SKILL.md;filename=git-commit-message/SKILL.md”
--F “files[]=@git-commit-message/resources/CONVENTIONAL_COMMITS_GUIDE.md;filename=git-commit-message/resources/CONVENTIONAL_COMMITS_GUIDE.md”
--F “files[]=@git-commit-message/scripts/parse_diff.py;filename=git-commit-message/scripts/parse_diff.py”
+	-H “x-api-key: $ANTHROPIC_API_KEY”
+	-H “anthropic-version: 2023-06-01”
+	-H “anthropic-beta: skills-2025-10-02”
+	-F “display_title=Git Commit Message Generator”
+	-F “files[]=@git-commit-message/SKILL.md;filename=git-commit-message/SKILL.md”
+	-F “files[]=@git-commit-message/resources/CONVENTIONAL_COMMITS_GUIDE.md;filename=git-commit-message/resources/CONVENTIONAL_COMMITS_GUIDE.md”
+	-F “files[]=@git-commit-message/scripts/parse_diff.py;filename=git-commit-message/scripts/parse_diff.py”
 
 ```
 上述命令将技能文件夹中的多个文件上传，并返回一个技能 ID（如 `skill_01AbCdEfGhIjKlMnOpQrStUv`）。开发者需要记录这个 ID，以便后续在 Messages API 中引用该技能。
 
 2. **在 Messages API 中使用技能**：在调用 Claude 的 Messages API 时，通过 `container` 参数指定要使用的技能。例如：
-```
+```json
 
-json
 {
-“model”: “claude-sonnet-4-5-20250929”,
-“max_tokens”: 1024,
-“container”: {
-“type”: “custom”,
-“skill_id”: “skill_01AbCdEfGhIjKlMnOpQrStUv”
-},
-“messages”: [
-{“role”: “user”, “content”: “I just fixed a navigation bar bug. Please generate a commit message.”}
-]
+	“model”: “claude-sonnet-4-5-20250929”,
+	“max_tokens”: 1024,
+	“container”: {
+		“type”: “custom”,
+		“skill_id”: “skill_01AbCdEfGhIjKlMnOpQrStUv”
+	},
+	“messages”: [
+		{“role”: “user”, “content”: “I just fixed a navigation bar bug. Please generate a commit message.”}
+	]
 }
 
 ```
