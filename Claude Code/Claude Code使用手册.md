@@ -32,7 +32,7 @@
    - 6.6 [并行会话与 Git Worktree](#66-并行会话与-git-worktree)
    - 6.7 [作为 Unix 工具使用](#67-作为-unix-工具使用)
    - 6.8 [控制输出格式](#68-控制输出格式)
-   - 6.9 [Claude Skills 使用](#69-claude-skills-使用)
+   - 6.9 [Skills 使用](#69-skills-使用)
    - 6.10 [循环与定时任务 (Loop)](#610-循环与定时任务-loop)
 7. [最佳实践](#7-最佳实践)
    - 7.1 [优化设置（CLAUDE.md 文件）](#71-优化设置claudemd-文件)
@@ -1130,9 +1130,9 @@ claude -p "列出所有文件的行数" --output-format json
 
 通过合理地控制输出格式，你可以让 Claude Code 的输出更好地适应你的下游工具和需求。
 
-### 6.9 Claude Skills 使用
+### 6.9 Skills 使用
 
-参考文档 [Claude skills.md](../Claude%20Skills/Claude%20skills.md)。
+参考文档 [Skills](../Skills/README.md)。
 
 ### 6.10 循环与定时任务 (Loop)
 
