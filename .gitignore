@@ -1,0 +1,17 @@
+# ===== IDE / 编辑器配置 =====
+.idea/
+.vscode/
+
+# ===== 操作系统生成的文件 =====
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# ===== 依赖目录（若未来引入） =====
+node_modules/
+
+# ===== 临时文件与日志 =====
+*.log
+*.tmp
+*.swp
